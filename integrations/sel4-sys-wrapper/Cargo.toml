@@ -1,0 +1,24 @@
+[package]
+name = "sel4-sys-wrapper"
+version = "0.1.0"
+edition = "2018"
+build = "build.rs"
+resolver = "2"
+
+[build-dependencies]
+sel4-config = { path = "../../../kata/apps/system/components/kata-os-common/src/sel4-config" }
+
+[features]
+default = []
+# Dummy feature so we are able to probe if kernel is build with MCS
+CONFIG_KERNEL_MCS = []
+
+[lib]
+name = "sel4_sys"
+path = "lib.rs"
+crate-type = ["staticlib"]
+
+[dependencies]
+cfg-if = "1.0"
+macros = { path = "macros" }
+sel4-sys = { path = "../../../kata/apps/system/components/kata-os-common/src/sel4-sys", default-features = false }
