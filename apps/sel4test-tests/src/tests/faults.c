@@ -803,7 +803,8 @@ static int test_bad_instruction(env_t env)
 {
     return test_fault(env, FAULT_BAD_INSTRUCTION, false);
 }
-DEFINE_TEST(PAGEFAULT0005, "Test undefined instruction", test_bad_instruction, true)
+/* TODO(b/249537690) causes a kernel fault; disable for now */
+DEFINE_TEST(PAGEFAULT0005, "Test undefined instruction", test_bad_instruction, false)
 
 static int test_read_fault_interas(env_t env)
 {
