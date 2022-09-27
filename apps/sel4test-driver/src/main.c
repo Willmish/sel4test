@@ -429,9 +429,10 @@ void *main_continued(void *arg UNUSED)
         int untyped_count = simple_get_untyped_count(&env.simple);
         for (int i = 0; i < untyped_count; i++) {
             bool device = false;
+            bool isTainted = false;
             uintptr_t ut_paddr = 0;
             size_t ut_size_bits = 0;
-            seL4_CPtr ut_cptr = simple_get_nth_untyped(&env.simple, i, &ut_size_bits, &ut_paddr, &device);
+            seL4_CPtr ut_cptr = simple_get_nth_untyped(&env.simple, i, &ut_size_bits, &ut_paddr, &device, &isTainted);
             if (device) {
                 error = vka_alloc_frame_at(&env.vka, seL4_PageBits, ut_paddr, &env.device_obj);
                 if (!error) {
