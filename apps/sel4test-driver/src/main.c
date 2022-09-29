@@ -418,6 +418,11 @@ void *main_continued(void *arg UNUSED)
     printf("\n");
     printf("seL4 Test\n");
     printf("=========\n");
+    if (config_set(CONFIG_KERNEL_MCS)) {
+        printf("MCS configuration\n");
+    } else {
+        printf("Legacy (not MCS) configuration\n");
+    }
     printf("\n");
 
     int error;
