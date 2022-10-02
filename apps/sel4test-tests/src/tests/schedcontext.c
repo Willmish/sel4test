@@ -56,7 +56,7 @@ int test_sched_control_configure(env_t env)
     test_eq(error, seL4_RangeError);
 
     /* test budget < MIN_BUDGET doesn't work */
-    error = api_sched_ctrl_configure(simple_get_sched_ctrl(&env->simple, 0), sc, 1, 5000, 0, 0);
+    error = api_sched_ctrl_configure(simple_get_sched_ctrl(&env->simple, 0), sc, MIN_BUDGET_US - 1, 5000, 0, 0);
     test_eq(error, seL4_RangeError);
 
     /* test budget == MIN_BUDGET does work */
