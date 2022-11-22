@@ -6,7 +6,7 @@ build = "build.rs"
 resolver = "2"
 
 [build-dependencies]
-sel4-config = { path = "../../../kata/apps/system/components/kata-os-common/src/sel4-config" }
+sel4-config = { path = "../../../cantrip/apps/system/components/cantrip-os-common/src/sel4-config" }
 
 [features]
 default = []
@@ -21,4 +21,4 @@ crate-type = ["staticlib"]
 [dependencies]
 cfg-if = "1.0"
 macros = { path = "macros" }
-sel4-sys = { path = "../../../kata/apps/system/components/kata-os-common/src/sel4-sys", default-features = false }
+sel4-sys = { path = "../../../cantrip/apps/system/components/cantrip-os-common/src/sel4-sys", default-features = false }
