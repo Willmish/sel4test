@@ -16,7 +16,7 @@ fn main() {
     let cargo_target_arch = env::var("CARGO_CFG_TARGET_ARCH").unwrap();
     let cargo_target_pointer_width = env::var("CARGO_CFG_TARGET_POINTER_WIDTH").unwrap();
     // XXX(mwitkowski): For now tools lives in sel4-sys crate, so lets use that
-    let tools_dir = format!("{}/../../../kata/apps/system/components/kata-os-common/src/sel4-sys/tools",
+    let tools_dir = format!("{}/../../../cantrip/apps/system/components/cantrip-os-common/src/sel4-sys/tools",
         env::var("CARGO_MANIFEST_DIR").unwrap());
     println!(
         "target_arch = {} target_pointer_width = {}",
@@ -29,7 +29,7 @@ fn main() {
     // Default to "seL4" for backwards compat; can either use git submodule or
     // symbolic link (neither recommended)
     let sel4_dir = env::var("SEL4_DIR").unwrap_or_else(
-        |_| format!("{}/kata/kernel", env::var("ROOTDIR").unwrap())
+        |_| format!("{}/cantrip/kernel", env::var("ROOTDIR").unwrap())
     );
     println!("sel4_dir {}", sel4_dir);
 
@@ -37,7 +37,7 @@ fn main() {
     // location relative to the ROOTDIR env variable.
     println!("SEL4_OUT_DIR {:?}", env::var("SEL4_OUT_DIR"));
     let sel4_out_dir = env::var("SEL4_OUT_DIR").unwrap_or_else(
-        |_| format!("{}/out/kata/kernel", env::var("ROOTDIR").unwrap())
+        |_| format!("{}/out/cantrip/kernel", env::var("ROOTDIR").unwrap())
     );
     println!("sel4_out_dir {}", sel4_out_dir);
 
