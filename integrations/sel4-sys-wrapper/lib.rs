@@ -1,3 +1,8 @@
+/*
+ * Copyright 2021, Google LLC
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 #![feature(lang_items)]
 #![no_std]
 #![allow(non_snake_case)]

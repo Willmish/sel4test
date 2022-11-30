@@ -1,3 +1,8 @@
+/*
+ * Copyright 2021, Google LLC
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 use proc_macro::TokenStream;
 use quote::{ToTokens, quote, format_ident};
 use syn::{FnArg, Type, ReturnType, parse_quote};
