@@ -18,6 +18,10 @@ find_package(elfloader-tool REQUIRED)
 # need to be increased in the future
 set(KernelRootCNodeSizeBits 13 CACHE INTERNAL "")
 
+# Force shoehorn.py to include an extra 4M of space when identifying a
+# load location for elfloader.
+SetElfLoaderFudgeFactor("4194304")
+
 # Set our custom domain schedule
 set(KernelDomainSchedule "${CMAKE_CURRENT_LIST_DIR}/domain_schedule.c" CACHE INTERNAL "")
 sel4_import_kernel()
