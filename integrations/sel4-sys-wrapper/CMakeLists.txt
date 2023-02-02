@@ -20,6 +20,8 @@ cmake_minimum_required(VERSION 3.8.2)
 #  -DRustCFlags="" \
 #  -DRustVersion=nightly-2021-11-05
 
+# NB: force --release; debug builds do not work (they run out of memory)
+
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/target/libsel4_sys.a
     COMMAND ${CMAKE_COMMAND}
