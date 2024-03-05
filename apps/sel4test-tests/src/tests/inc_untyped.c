@@ -67,7 +67,7 @@ static int test_retype(env_t env)
 
     /* Delete them all. */
     for (i = 0; i < (1 << 2); i++) {
-        error = seL4_CNode_Delete(cnode.cptr, i, 2);
+        error = seL4_CNode_Delete(cnode.cptr, i, 2).error;
         test_error_eq(error, seL4_NoError);
     }
 

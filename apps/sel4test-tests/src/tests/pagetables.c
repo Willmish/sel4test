@@ -253,7 +253,7 @@ static int test_pagetable_arm(env_t env)
 
     /* Pull the plug on the page table. Apparently a recycle isn't good enough.
      * Get another pagetable! */
-    error = seL4_CNode_Delete(env->cspace_root, pt, seL4_WordBits);
+    error = seL4_CNode_Delete(env->cspace_root, pt, seL4_WordBits).error;
     test_error_eq(error, 0);
     error = seL4_ARM_Page_Unmap(small_page);
     test_error_eq(error, 0);
@@ -465,7 +465,7 @@ test_pagetable_arm(env_t env)
 
     /* Pull the plug on the page table. Apparently a recycle isn't good enough.
      * Get another pagetable! */
-    error = seL4_CNode_Delete(env->cspace_root, pt, seL4_WordBits);
+    error = seL4_CNode_Delete(env->cspace_root, pt, seL4_WordBits).error;
     test_error_eq(error, 0);
     error = seL4_ARM_Page_Unmap(small_page);
     test_error_eq(error, 0);
